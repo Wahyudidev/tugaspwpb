@@ -1,0 +1,11 @@
+
+
+Admin:
+
+Email   : anakkodya23@gmail.com
+Password: 12345678
+
+User:
+
+Email   : wahyudimana@gmail.com
+Password: 12345678
