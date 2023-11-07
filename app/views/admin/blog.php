@@ -17,6 +17,7 @@
               <p class="card-text"><?= $row['konten']; ?></p>
               <a href="<?= BASEURL; ?>/admin/readmore/<?= $row['id_blog'] ?>" class="btn btn-primary float-right">Read more</a>
               <a href="<?= BASEURL; ?>/admin/delete/<?= $row['id_blog'] ?>" class="btn btn-danger float-left" onclick="return confirm('Anda yakin untuk menghapus nya?');"><i class="bi bi-trash3"></i></a>
+              <a href="<?= BASEURL; ?>/admin/updateblog/<?= $row['id_blog'] ?>" class="btn btn-warning float-left ml-2" style="color: #fff;"><i class="bi bi-pencil-square"></i> </a>
             </div>
           </div>
         </div>
@@ -38,6 +39,11 @@
       <div class="modal-body">
         <form action="<?= BASEURL; ?>/admin/add" method="post">
           <div class="form-group">
+                <label for="image">Gambar</label>
+                <input type="file" name="image" class="form-control-file" accept="image/*">
+            </div>
+
+          <div class="form-group">
             <label for="judul">Judul Blog</label>
             <input type="text" class="form-control" id="judul" name="judul" placeholder="">
           </div>
@@ -50,9 +56,10 @@
 
 
           <div class="form-group">
-            <label for="konten">Konten</label>
-            <input type="text" class="form-control" id="konten" name="konten" placeholder="">
-          </div>
+    <label for="konten">Konten</label>
+    <textarea class="form-control" id="konten" name="konten" rows="4" placeholder=""></textarea>
+</div>
+
 
       </div>
       <div class="modal-footer">

@@ -34,6 +34,21 @@ class Blog_model{
     
         return $this->db->rowCount();
     }
+    public function updateBlog($id_blog, $judul, $author, $konten)
+{
+    $query = "UPDATE blog SET judul = :judul, author = :author, konten = :konten WHERE id_blog = :id_blog";
+    $this->db->query($query);
+    $this->db->bind(':id_blog', $id_blog);
+    $this->db->bind(':judul', $judul);
+    $this->db->bind(':author', $author);
+    $this->db->bind(':konten', $konten);
+
+    $this->db->execute();
+
+    return $this->db->rowCount();
+}
+
+
     
 }
 ?>

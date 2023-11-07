@@ -17,7 +17,7 @@ if (isset($_POST["tambahDataUser"])) {
 <?php
 session_start();
 
-$_SESSION['user_role'] = $user_role;
+$_SESSION['level'] = $level;
 
 ?>
 

@@ -137,6 +137,7 @@ class admin extends Controller
             exit;
         }
     }
+    
 
     // USER
     public function deleteuser($id)
@@ -181,4 +182,36 @@ class admin extends Controller
             echo $message;
         }
     }
+    public function updateblog($id_blog)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $judul = $_POST['judul'];
+            $author = $_POST['author'];
+            $konten = $_POST['konten'];
+    
+            $data = [
+                'id_blog' => $id_blog,
+                'judul' => $judul,
+                'author' => $author,
+                'konten' => $konten
+            ];
+    
+            if ($this->model('Blog_model')->updateBlog($data['id_blog'], $data['judul'], $data['author'], $data['konten'])) {
+                // Handle update success
+                header('Location: ' . BASEURL . '/admin/blog');
+                exit;
+            } else {
+                // Handle update failure
+                echo 'Gagal memperbarui blog.';
+            }
+        } else {
+            $data['judul'] = 'Edit Blog';
+            $data['blog'] = $this->model('Blog_model')->getblogById($id_blog);
+            $this->view('Templates/admin-header', $data);
+            $this->view('Templates/admin-navbar', $data);
+            $this->view('admin/edit_blog', $data); // Buat view untuk halaman edit_blog
+            $this->view('Templates/admin-footer');
+        }
+    }
+    
 }

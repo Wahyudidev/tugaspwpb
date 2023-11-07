@@ -129,4 +129,14 @@ class Admin_model
 
         return $this->db->rowCount();
     }
+    public function ubahblog($id)
+    {
+        $query = "UPDATE blog SET judul = :judul, author = :author, konten = :konten WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+
+
+    }
 }
