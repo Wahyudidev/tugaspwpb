@@ -1,5 +1,5 @@
 <?php
 
-header("Location: http://localhost/pwpb-mvc/public/");
+header("Location: http://pwpb-mvc.test/");
 exit;
 ?>
